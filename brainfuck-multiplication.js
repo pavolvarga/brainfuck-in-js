@@ -1,36 +1,18 @@
 
 //
-// program must be passed 2 integer numbers - otherwise exit
-//
-if (process.argv.length != 4) {
-    console.log('Pass 2 arguments, both must be integers');
-    process.exit(1);
-}
-if (!Number.isInteger(parseInt(process.argv[2], 10))) {
-    console.log('Pass 2 arguments, both must be integers, the first was not an integer');
-    process.exit(1);
-}
-if (!Number.isInteger(parseInt(process.argv[3], 10))) {
-    console.log('Pass 2 arguments, both must be integers, the second was not an integer');
-    process.exit(1);
-}
-
-//
-//initialization of array (representing the memory) and pointer
-//
-const arr = [0, 0, 0, 0];
-let i = 0;
-
-//
-//branfuck program - read two numbers, multiply them, print the result
+// brainfuck program - read two numbers, multiply them, print the result
 //
 // ,>,< [-> [->+>+<<] > [-<+>] << ] >>>.
 //
-
-//
-//brainfuck's javascript equivalent
+// brainfuck's javascript equivalent
 //
 function brainfuck_multiplication(arg1, arg2) {
+
+    //initialization of array (representing the memory) and pointer
+    const arr = [0, 0, 0, 0];
+    let i = 0;
+
+    //brainfuck program begins
 
     arr[i] = arg1;            //     ,       // read the first number
     i += 1;                   //     >
@@ -70,7 +52,19 @@ function brainfuck_multiplication(arg1, arg2) {
     console.log(arr[i]);      //     .
 }
 
-//
+//validate inputs - program must be passed 2 integer numbers - otherwise exit
+if (process.argv.length != 4) {
+    console.log('Pass 2 arguments, both must be integers');
+    process.exit(1);
+}
+if (!Number.isInteger(parseInt(process.argv[2], 10))) {
+    console.log('Pass 2 arguments, both must be integers, the first was not an integer');
+    process.exit(1);
+}
+if (!Number.isInteger(parseInt(process.argv[3], 10))) {
+    console.log('Pass 2 arguments, both must be integers, the second was not an integer');
+    process.exit(1);
+}
+
 //run the program
-//
 brainfuck_multiplication(parseInt(process.argv[2]), parseInt(process.argv[3]));

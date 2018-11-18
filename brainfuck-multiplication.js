@@ -28,44 +28,49 @@ let i = 0;
 //
 
 //
-//javascript equivalent
+//brainfuck's javascript equivalent
 //
+function brainfuck_multiplication(arg1, arg2) {
 
-arr[i] = parseInt(process.argv[2]);  //     ,       // read the first number
-i += 1;                              //     >
-arr[i] = parseInt(process.argv[3]);  //     ,       // read the second number 
-i -= 1;                              //     <
+    arr[i] = arg1;            //     ,       // read the first number
+    i += 1;                   //     >
+    arr[i] = arg2;            //     ,       // read the second number 
+    i -= 1;                   //     <
 
-while (arr[i] != 0) {                //     [       // dec the 1st number and move to the 2nd position
-    arr[i] -= 1;                     //       -
-    i += 1;                          //       >
+    while (arr[i] != 0) {     //     [       // dec the 1st number and move to the 2nd position
+        arr[i] -= 1;          //       -
+        i += 1;               //       >
 
-    while (arr[i] != 0) {            //       [     // dec the 2nd number, copy its value to 3rd position, add its value to the 4th position
-        arr[i] -= 1;                 //         - 
-        i += 1;                      //         >
-        arr[i] += 1;                 //         +
-        i += 1;                      //         >
-        arr[i] += 1;                 //         +
-        i -= 1;                      //         <   
-        i -= 1;                      //         <
-    }                                //       ] 
+        while (arr[i] != 0) { //       [     // dec the 2nd number, copy its value to 3rd position, add its value to the 4th position
+            arr[i] -= 1;      //         - 
+            i += 1;           //         >
+            arr[i] += 1;      //         +
+            i += 1;           //         >
+            arr[i] += 1;      //         +
+            i -= 1;           //         <   
+            i -= 1;           //         <
+        }                     //       ] 
 
-    i += 1;                          //       >     // move the the 3rd position
+        i += 1;               //       >     // move the the 3rd position
 
-    while (arr[i] != 0) {            //       [     // copy number from the 3rd positon back to the 2nd position (it was decremented to 0 in the previous loop)
-        arr[i] -= 1;                 //         -
-        i -= 1;                      //         <
-        arr[i] += 1;                 //         +
-        i += 1;                      //         >
-    }                                //       ]  
+        while (arr[i] != 0) { //       [     // copy number from the 3rd positon back to the 2nd position (it was decremented to 0 in the previous loop)
+            arr[i] -= 1;      //         -
+            i -= 1;           //         <
+            arr[i] += 1;      //         +
+            i += 1;           //         >
+        }                     //       ]  
 
-    i -= 1;                          //       <     // move back to the 1st position 
-    i -= 1;                          //       <
+        i -= 1;               //       <     // move back to the 1st position 
+        i -= 1;               //       <
+    }                         //     ]
 
-}                                    //     ]
+    i += 1;                   //     >       // move to the 4th position and print result
+    i += 1;                   //     >
+    i += 1;                   //     >
+    console.log(arr[i]);      //     .
+}
 
-i += 1;                              //     >       // move to the 4th position and print result
-i += 1;                              //     >
-i += 1;                              //     >
-console.log(arr[i]);                 //     .
-
+//
+//run the program
+//
+brainfuck_multiplication(parseInt(process.argv[2]), parseInt(process.argv[3]));

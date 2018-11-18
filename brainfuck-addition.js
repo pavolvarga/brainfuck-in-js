@@ -28,21 +28,29 @@ let i = 0;
 //
 
 //
-//javascript equivalent
+//brainfuck's javascript equivalent
 //
+function brainfuck_addition(arg1, arg2) {
 
-arr[i] = parseInt(process.argv[2]);     //  ,       // read the first number
-i += 1;                                 //  >
-arr[i] = parseInt(process.argv[3]);     //  ,       // read the second number
-i -= 1;                                 //  <
+    arr[i] = arg1;               //  ,       // read the first number
+    i += 1;                      //  >
+    arr[i] = arg2;               //  ,       // read the second number
+    i -= 1;                      //  <
 
-while (arr[i] != 0) {                   //  [       // dec the first number, increment the second number
-    arr[i] -= 1;                        //    -
-    i += 1;                             //    >
-    arr[i] += 1;                        //    +
-    i -= 1;                             //    <
-}                                       //  ]
+    while (arr[i] != 0) {        //  [       // dec the first number, increment the second number
+        arr[i] -= 1;             //    -
+        i += 1;                  //    >
+        arr[i] += 1;             //    +
+        i -= 1;                  //    <
+    }                            //  ]
 
-i += 1;                                 //  >       // move the the second position, print the result
-console.log(arr[i]);                    //  .
+    i += 1;                      //  >       // move the the second position, print the result
+    console.log(arr[i]);         //  .
+}
+
+//
+//run the program
+//
+brainfuck_addition(parseInt(process.argv[2]), parseInt(process.argv[3]));
+
 

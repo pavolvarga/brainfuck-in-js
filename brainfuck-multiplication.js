@@ -24,7 +24,7 @@ let i = 0;
 //
 //branfuck program - read two numbers, multiply them, print the result
 //
-// ,>,< [-> [->+>+<<] > [-<+>] << ] +++.
+// ,>,< [-> [->+>+<<] > [-<+>] << ] >>>.
 //
 
 //
@@ -64,8 +64,8 @@ while (arr[i] != 0) {                //     [       // dec the 1st number and mo
 
 }                                    //     ]
 
-i += 1;                              //     +       // move to the 4th position and print result
-i += 1;                              //     +
-i += 1;                              //     +
+i += 1;                              //     >       // move to the 4th position and print result
+i += 1;                              //     >
+i += 1;                              //     >
 console.log(arr[i]);                 //     .
 

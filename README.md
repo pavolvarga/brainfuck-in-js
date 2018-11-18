@@ -16,7 +16,7 @@ let i = 0;
 
 | Brainfuck command   | Meaning                                                               | Javascript equivalent         |
 | -----------------   | --------                                                              | ------------------------------|
-|       `,`           | read data from input, store it at the data pointer                    | `arr[i] = process.argv[idx]`  |
+|       `,`           | read data from input, store it at the data pointer                    | `arr[i] = arg;`               |
 |       `.`           | print data to output, at the data pointer                             | `console.log(arr[i]);`        |
 |       `>`           | increment the data pointer (to point to the next cell to the right)   | `i += 1;`                     |
 |       `<`           | decrement the data pointer (to point to previous cell to the left)    | `i -= 1;`                     |
@@ -28,8 +28,8 @@ let i = 0;
 <br/>
 
 Each program accepts command line arguments (which represents inputs to the brainfuck). These arguments are validated using javascript.
-If they are valid then these arguments are passed to the brainfuck program. If for example a program requires numbers, then arguments are
-parsed by javascript before being passed to the brainfuck program. No conversion from ASCII to characters is done.
+If they are valid then these arguments are passed to the brainfuck program / function. If for example a program requires numbers, then arguments are
+parsed by javascript before being passed to the brainfuck program / function. No conversion from ASCII to characters is done.
 
 ## How to run
 
@@ -40,3 +40,5 @@ Then pass appropriate arguments, like:
 ```shell
 node brainfuck-addition.js 5 5
 ```
+
+If you don't want to use node, you can copy the brainfuck function (from a program) into browser and call it with right arguments.

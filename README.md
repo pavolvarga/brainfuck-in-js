@@ -33,6 +33,8 @@ parsed by javascript before being passed to the brainfuck program / function. No
 
 ## How to run
 
+### Using node.js
+
 Use **node.js** to run a program (no dependencies). <br/>
 Run a program first without arguments, to see what arguments it requires. <br/>
 Then pass appropriate arguments, like:
@@ -40,5 +42,21 @@ Then pass appropriate arguments, like:
 ```shell
 node brainfuck-addition.js 5 5
 ```
+### Using browser
 
-If you don't want to use node, you can copy the brainfuck function (from a program) into browser and call it with right arguments.
+From each program program you can copy the brainfuck function (each starts with *'brainfuck_'*) into a web browser's console.
+Then call the function with correct arguments (no validation is done in the brainfuck function).
+
+### Using docker
+
+Pull the latest image from the docker hub
+
+`docker pull pavolvarga1024/brainfuck-in-js`
+
+Run the container and connect to it
+
+`docker container run -it pavolvarga1024/brainfuck-in-js`
+
+Use node for running any program, for example: 
+
+`node brainfuck-addition.js 5 6`
